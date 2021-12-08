@@ -11,7 +11,7 @@ fn read(content: &str) -> Vec<(Vec<String>, Vec<String>)> {
                 digits.push(tokens.next().unwrap().to_owned());
             }
             assert_eq!(tokens.next().unwrap(), "|");
-            let mut output = tokens.map(|s| s.to_owned()).collect();
+            let output = tokens.map(|s| s.to_owned()).collect();
             (digits, output)
         })
         .collect()
@@ -19,7 +19,7 @@ fn read(content: &str) -> Vec<(Vec<String>, Vec<String>)> {
 
 fn solve(a: &[(Vec<String>, Vec<String>)]) -> usize {
     let mut result = 0;
-    for (digits, output) in a.to_vec() {
+    for (_digits, output) in a.to_vec() {
         for digit in output {
             if digit.len() == 2 || digit.len() == 3 || digit.len() == 4 || digit.len() == 7 {
                 result += 1;

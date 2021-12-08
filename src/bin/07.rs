@@ -16,7 +16,7 @@ fn solve(a: &[usize]) -> usize {
         right += x - a[0];
     }
     let mut result = left + right;
-    for (index, &x) in a.iter().enumerate().skip(1) {
+    for (index, &_x) in a.iter().enumerate().skip(1) {
         left += index * (a[index] - a[index - 1]);
         right -= (a.len() - index) * (a[index] - a[index - 1]);
         result = result.min(left + right);
